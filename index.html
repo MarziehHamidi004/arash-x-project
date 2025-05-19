@@ -1,22 +1,75 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>Arash X Project - Anime Birthday</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Arash X</title>
   <style>
     body {
       margin: 0;
-      background-color: black;
+      background: black;
       color: white;
       font-family: 'Arial', sans-serif;
-      text-align: center;
-      padding-top: 20%;
+      overflow: hidden;
+    }
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .fade-in {
+      animation: fadeIn 3s ease-in forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    #surprise-text {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    #download-btn, #replay-btn, #share-btn {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>アラッシュ〜〜〜〜〜！！！</h1>
-  <p>準備中... Loading surprise...</p>
+  <div class="center fade-in">
+    <div id="surprise-text">ロード中… サプライズを準備しています</div>
+    <button id="download-btn">📥 ダウンロード</button>
+    <button id="replay-btn">🔁 もう一度</button>
+    <button id="share-btn">📤 シェア</button>
+    <audio id="bg-music" controls autoplay loop>
+      <source src="happy_birthday_jp.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    document.getElementById('replay-btn').addEventListener('click', () => {
+      location.reload();
+    });
+
+    document.getElementById('download-btn').addEventListener('click', () => {
+      alert('ファイルを準備中です...');
+    });
+
+    document.getElementById('share-btn').addEventListener('click', () => {
+      alert('共有リンクを生成しています...');
+    });
+  </script>
 </body>
 </html>
-
